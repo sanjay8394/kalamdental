@@ -16,23 +16,22 @@ import DoctorCard from '../components/DoctorCard';
 import TestimonialCard from '../components/TestimonialCard';
 
 export default function Home({ onOpenAppointment, onSelectTreatment, onSelectDoctor }) {
-  // Top 4 treatments for a clean, non-cluttered grid
   const featuredTreatments = treatments.slice(0, 4);
   const featuredDoctors = doctors.slice(0, 3);
   const featuredReviews = testimonials.slice(0, 2);
 
   return (
-    <div className="space-y-16 pb-12">
+    <div className="space-y-16 pb-12 overflow-hidden">
       
-      {/* 1. HERO SECTION */}
-      <section className="relative pt-6 pb-12 lg:pt-12 lg:pb-16 bg-gradient-to-b from-warm-ivory via-mint-mist/30 to-warm-ivory overflow-hidden">
+      {/* 1. HERO SECTION WITH FADE-IN-UP ANIMATIONS */}
+      <section className="relative pt-6 pb-12 lg:pt-12 lg:pb-16 bg-gradient-to-b from-warm-ivory via-mint-mist/30 to-warm-ivory">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             
             {/* Hero Left Content */}
-            <div className="lg:col-span-7 space-y-5 text-center lg:text-left">
+            <div className="lg:col-span-7 space-y-5 text-center lg:text-left animate-fade-in-up">
               
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-mint-mist border border-medical-teal/30 text-medical-teal text-xs font-bold shadow-sm">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-mint-mist border border-medical-teal/30 text-medical-teal text-xs font-bold shadow-sm animate-float">
                 <Sparkles className="w-3.5 h-3.5 text-soft-coral" />
                 <span>Dr. Kalam’s Dental • 3+ Years Experience</span>
               </div>
@@ -61,7 +60,7 @@ export default function Home({ onOpenAppointment, onSelectTreatment, onSelectDoc
                   href={createWhatsAppLink("Namaste! I would like to book an appointment.")}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto py-3 px-5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs flex items-center justify-center gap-2 shadow-sm transition-colors"
+                  className="w-full sm:w-auto py-3 px-5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs flex items-center justify-center gap-2 shadow-sm transition-all hover:scale-[1.02] active:scale-[0.98]"
                 >
                   <MessageSquare className="w-4 h-4" />
                   WhatsApp Us
@@ -70,20 +69,20 @@ export default function Home({ onOpenAppointment, onSelectTreatment, onSelectDoc
 
             </div>
 
-            {/* Hero Right Image Visual */}
-            <div className="lg:col-span-5 relative">
+            {/* Hero Right Image Visual with Floating Badge */}
+            <div className="lg:col-span-5 relative animate-fade-in">
               <div className="relative mx-auto max-w-md lg:max-w-none">
-                <div className="relative bg-white rounded-3xl overflow-hidden shadow-xl border-4 border-white">
+                <div className="relative bg-white rounded-3xl overflow-hidden shadow-xl border-4 border-white group">
                   <img 
                     src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=800&q=80" 
                     alt="Dr Kalam's Dental Suite"
-                    className="w-full h-[320px] sm:h-[380px] object-cover"
+                    className="w-full h-[320px] sm:h-[380px] object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                   />
                   
                   {/* Virtual Consultation Overlay Badge */}
-                  <div className="absolute top-3 left-3 right-3 bg-deep-teal/95 text-white p-2.5 rounded-2xl backdrop-blur-md shadow-md flex items-center justify-between border border-white/20">
+                  <div className="absolute top-3 left-3 right-3 bg-deep-teal/95 text-white p-2.5 rounded-2xl backdrop-blur-md shadow-md flex items-center justify-between border border-white/20 animate-float">
                     <div className="flex items-center gap-2 text-xs font-bold">
-                      <Video className="w-3.5 h-3.5 text-emerald-400" />
+                      <Video className="w-3.5 h-3.5 text-emerald-400 animate-pulse" />
                       <span>Virtual Video Consultations Available</span>
                     </div>
                   </div>
@@ -99,8 +98,8 @@ export default function Home({ onOpenAppointment, onSelectTreatment, onSelectDoc
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-white rounded-3xl p-6 shadow-card border border-medical-teal/10 grid grid-cols-2 lg:grid-cols-4 gap-6 text-center sm:text-left">
           
-          <div className="flex flex-col sm:flex-row items-center sm:items-start gap-3">
-            <div className="w-10 h-10 rounded-xl bg-mint-mist text-medical-teal flex items-center justify-center shrink-0">
+          <div className="flex flex-col sm:flex-row items-center sm:items-start gap-3 group">
+            <div className="w-10 h-10 rounded-xl bg-mint-mist text-medical-teal flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-medical-teal group-hover:text-white transition-all duration-300">
               <ShieldCheck className="w-5 h-5" />
             </div>
             <div>
@@ -109,8 +108,8 @@ export default function Home({ onOpenAppointment, onSelectTreatment, onSelectDoc
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center sm:items-start gap-3">
-            <div className="w-10 h-10 rounded-xl bg-mint-mist text-emerald-600 flex items-center justify-center shrink-0">
+          <div className="flex flex-col sm:flex-row items-center sm:items-start gap-3 group">
+            <div className="w-10 h-10 rounded-xl bg-mint-mist text-emerald-600 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-emerald-600 group-hover:text-white transition-all duration-300">
               <Video className="w-5 h-5" />
             </div>
             <div>
@@ -119,8 +118,8 @@ export default function Home({ onOpenAppointment, onSelectTreatment, onSelectDoc
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center sm:items-start gap-3">
-            <div className="w-10 h-10 rounded-xl bg-mint-mist text-soft-coral flex items-center justify-center shrink-0">
+          <div className="flex flex-col sm:flex-row items-center sm:items-start gap-3 group">
+            <div className="w-10 h-10 rounded-xl bg-mint-mist text-soft-coral flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-soft-coral group-hover:text-white transition-all duration-300">
               <Sparkles className="w-5 h-5" />
             </div>
             <div>
@@ -129,8 +128,8 @@ export default function Home({ onOpenAppointment, onSelectTreatment, onSelectDoc
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center sm:items-start gap-3">
-            <div className="w-10 h-10 rounded-xl bg-mint-mist text-medical-teal flex items-center justify-center shrink-0">
+          <div className="flex flex-col sm:flex-row items-center sm:items-start gap-3 group">
+            <div className="w-10 h-10 rounded-xl bg-mint-mist text-medical-teal flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-medical-teal group-hover:text-white transition-all duration-300">
               <Clock className="w-5 h-5" />
             </div>
             <div>
@@ -207,7 +206,7 @@ export default function Home({ onOpenAppointment, onSelectTreatment, onSelectDoc
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
             <div className="lg:col-span-7 space-y-3 text-center lg:text-left">
-              <span className="bg-soft-coral text-white text-[11px] font-extrabold uppercase px-3 py-0.5 rounded-full inline-block">
+              <span className="bg-soft-coral text-white text-[11px] font-extrabold uppercase px-3 py-0.5 rounded-full inline-block animate-pulse">
                 Visit or Consult Virtually
               </span>
               <h2 className="text-2xl sm:text-3xl font-extrabold">
@@ -220,9 +219,9 @@ export default function Home({ onOpenAppointment, onSelectTreatment, onSelectDoc
               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-2">
                 <a
                   href={`tel:${clinicInfo.phoneClean}`}
-                  className="px-5 py-2.5 rounded-xl bg-white text-deep-teal font-extrabold text-xs hover:bg-mint-mist transition-colors flex items-center gap-2 shadow-sm"
+                  className="px-5 py-2.5 rounded-xl bg-white text-deep-teal font-extrabold text-xs hover:bg-mint-mist transition-all hover:scale-105 shadow-sm"
                 >
-                  <Phone className="w-3.5 h-3.5 text-medical-teal" />
+                  <Phone className="w-3.5 h-3.5 text-medical-teal inline mr-1.5" />
                   Call {clinicInfo.phone}
                 </a>
 
@@ -230,9 +229,9 @@ export default function Home({ onOpenAppointment, onSelectTreatment, onSelectDoc
                   href={clinicInfo.address.mapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs transition-colors flex items-center gap-2 shadow-sm"
+                  className="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs transition-all hover:scale-105 shadow-sm"
                 >
-                  <MapPin className="w-3.5 h-3.5" />
+                  <MapPin className="w-3.5 h-3.5 inline mr-1.5" />
                   Open Maps Location
                 </a>
               </div>

@@ -11,10 +11,10 @@ export default function Button({
   external = false,
   ...props 
 }) {
-  const baseStyles = "inline-flex items-center justify-center font-semibold rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer shadow-sm active:scale-[0.98]";
+  const baseStyles = "inline-flex items-center justify-center font-semibold rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer shadow-sm hover:scale-[1.02] active:scale-[0.98] btn-shimmer";
   
   const variants = {
-    coral: "bg-soft-coral hover:bg-[#db7a61] text-white shadow-soft hover:shadow-md focus:ring-soft-coral",
+    coral: "bg-soft-coral hover:bg-[#db7a61] text-white shadow-soft hover:shadow-glow focus:ring-soft-coral",
     teal: "bg-medical-teal hover:bg-[#137777] text-white focus:ring-medical-teal",
     deepTeal: "bg-deep-teal hover:bg-[#0c2a34] text-white focus:ring-deep-teal",
     outline: "border-2 border-deep-teal text-deep-teal hover:bg-deep-teal hover:text-white focus:ring-deep-teal",
@@ -38,10 +38,10 @@ export default function Button({
         href={href} 
         className={combinedClass}
         target={external ? "_blank" : undefined}
-        rel={external ? "noopener noreferrer" : undefined}
+        rel="noopener noreferrer"
         {...props}
       >
-        {Icon && <Icon className="w-4 h-4 shrink-0" />}
+        {Icon && <Icon className="w-4 h-4 shrink-0 transition-transform duration-300 group-hover:translate-x-0.5" />}
         {children}
       </a>
     );
@@ -49,7 +49,7 @@ export default function Button({
 
   return (
     <button onClick={onClick} className={combinedClass} {...props}>
-      {Icon && <Icon className="w-4 h-4 shrink-0" />}
+      {Icon && <Icon className="w-4 h-4 shrink-0 transition-transform duration-300" />}
       {children}
     </button>
   );
